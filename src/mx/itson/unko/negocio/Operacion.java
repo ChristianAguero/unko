@@ -11,20 +11,33 @@ package mx.itson.unko.negocio;
  */
 public class Operacion {
     
-    public String sacarCurp(String nombre, String apellidoPaterno, String apellidoMaterno, int diaNacimiento, String mesNacimiento, int anioNacimiento, String sexo, String estadoNacimiento){
+    public String sacarCurp(String nombre, String apellidoPaterno, String apellidoMaterno, String diaNacimiento, String mesNacimiento, int anioNacimiento, String sexo, String estadoNacimiento){
         
         String curp = "";
-        nombre = nombre.toUpperCase().trim();
-        apellidoPaterno = apellidoPaterno.toUpperCase().trim();
-        apellidoMaterno = apellidoMaterno.toUpperCase().trim();
-        char[] letrasNombre = nombre.toCharArray();
+        nombre = nombre.toLowerCase().trim()
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .toUpperCase();
+        String[] arrayNombre = nombre.toLowerCase().split(" ");
+        apellidoPaterno = apellidoPaterno.trim()
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .toUpperCase();
+        apellidoMaterno = apellidoMaterno.toLowerCase().trim()
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .toUpperCase();
+        char[] letrasNombre1 = arrayNombre[0].toCharArray();
+        char[] letrasNombre2 = arrayNombre[1].toCharArray();
         char[] letrasApellidoPaterno = apellidoPaterno.toCharArray();
         char[] letrasApellidoMaterno = apellidoMaterno.toCharArray();
-        String dia = Integer.toString(diaNacimiento);
+        String dia = diaNacimiento;
         String mes = "";
-        String anio = Integer.toString(anioNacimiento);
+        String stringAnio = Integer.toString(anioNacimiento);
+        char[] anio = .toCharArray();
         char[] letrasSexo = sexo.toCharArray();
         String estado = "";
+        int contador1 = 0;
+        int contador2 = 0;
+        int i = 0;
+        int j = 1;
         
         
         switch(mesNacimiento){
@@ -180,6 +193,10 @@ public class Operacion {
 
                     
 
+                }else{
+                
+                contador1 = 1;
+                
                 }
                 
             }
@@ -190,9 +207,147 @@ public class Operacion {
 
                     
 
+                }else{
+                
+                contador1 = 1;
+                
                 }
                 
             }
+            
+        }
+        
+        if(nombre.equals("") || apellidoPaterno.equals("") || anioNacimiento.equals("")){
+            
+            
+            
+        }else{
+            
+            contador2 = 1;
+            
+        }
+        
+        if(contador1 == 1 && contador2 == 1){
+            
+            curp += letrasApellidoPaterno[0];
+            
+            do{
+                
+                if (letrasApellidoPaterno[j] == 'A' || letrasApellidoPaterno[j] == 'E' || letrasApellidoPaterno[j] == 'I' || letrasApellidoPaterno[j] == 'O' || letrasApellidoPaterno[j] == 'U'){
+                    
+                    curp += letrasApellidoPaterno[j];
+                    i++;
+                    
+                }
+                
+                j++;
+                        
+            }while(i == 0);
+            
+            if(apellidoMaterno.equals("")){
+                
+                curp += 'X';
+                
+            }else{
+                
+                curp += letrasApellidoMaterno[0];
+                
+            }
+            
+            if(arrayNombre[1].equals("")){
+               
+                curp += letrasNombre1[0];
+                
+            }else{
+            
+                if(arrayNombre[0].equals("JOSE") || arrayNombre[0].equals("MARIA")){
+                    
+                    curp += letrasNombre2[0];
+                    
+                }else{
+                    
+                    curp += letrasNombre1[0];
+                    
+                }
+                    
+            }
+            
+            curp += anio[2];
+            curp += anio[3];
+            curp += mes;
+            curp += dia;
+            curp += letrasSexo[0];
+            curp += estado;
+            i = 0;
+            j = 1;
+            
+            do{
+                
+                if (letrasApellidoPaterno[j] == 'A' || letrasApellidoPaterno[j] == 'E' || letrasApellidoPaterno[j] == 'I' || letrasApellidoPaterno[j] == 'O' || letrasApellidoPaterno[j] == 'U'){
+                    
+                    
+                    
+                }else{
+                    
+                    curp += letrasApellidoPaterno[j];
+                    
+                }
+                
+                j++;
+                
+            }while(i == 0);
+            
+            if(apellidoMaterno.equals("")){
+                
+                curp += 'X';
+                
+            }else{
+                
+                i = 0;
+                j = 1;
+                
+                do{
+                
+                    if (letrasApellidoMaterno[j] == 'A' || letrasApellidoMaterno[j] == 'E' || letrasApellidoMaterno[j] == 'I' || letrasApellidoMaterno[j] == 'O' || letrasApellidoMaterno[j] == 'U'){
+                    
+                    
+                    
+                    }else{
+                    
+                        curp += letrasApellidoMaterno[j];
+                    
+                    }
+                
+                    j++;
+                
+                }while(i == 0); 
+                
+            }
+            
+            i = 0;
+            j = 1;
+                
+            do{
+                
+                if (letrasNombre1[j] == 'A' || letrasNombre1[j] == 'E' || letrasNombre1[j] == 'I' || letrasNombre1[j] == 'O' || letrasNombre1[j] == 'U'){
+                    
+                    
+                    
+                }else{
+                    
+                    curp += letrasNombre1[j];
+                    
+                }
+                
+                j++;
+                
+            }while(i == 0);
+            
+            if()
+            
+        }else{
+            
+            curp = "Error, no se puede generar la curp con los datos proporcionados";
             
         }
         

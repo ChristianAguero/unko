@@ -185,7 +185,7 @@ public class Main extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         String apellidoPaterno = txtApellidoPaterno.getText();
         String apellidoMaterno = txtApellidoMaterno.getText();
-        int diaNacimiento = Integer.parseInt(cboDiaNacimiento.getSelectedItem().toString());
+        String diaNacimiento = cboDiaNacimiento.getSelectedItem().toString();
         String mesNacimiento = cboMesNacimiento.getSelectedItem().toString();
         int anioNacimiento = Integer.parseInt(txtAnioNacimiento.getText());
         String sexo = cboSexo.getSelectedItem().toString();
