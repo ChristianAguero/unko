@@ -27,14 +27,14 @@ public class Operacion {
         
         String curp = "";
         nombre = nombre.toLowerCase().trim()
-                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o").replace("ü", "u")
                 .toUpperCase();
         String[] arrayNombre = nombre.split(" ");
         apellidoPaterno = apellidoPaterno.trim()
-                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o").replace("ü", "u")
                 .toUpperCase();
         apellidoMaterno = apellidoMaterno.toLowerCase().trim()
-                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
+                .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o").replace("ü", "u")
                 .toUpperCase();
         char[] letrasNombre1 = arrayNombre[0].toCharArray();
         char[] letrasNombre2 = null;
@@ -42,6 +42,10 @@ public class Operacion {
         //int pruebaLengthArrayNombre = arrayNombre.length;
         
         if (arrayNombre.length == 2){
+            
+            letrasNombre2 = arrayNombre[1].toCharArray();
+            
+        }else if(arrayNombre.length > 2){
             
             letrasNombre2 = arrayNombre[1].toCharArray();
             
