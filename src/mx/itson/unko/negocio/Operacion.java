@@ -41,13 +41,17 @@ public class Operacion {
         
         //int pruebaLengthArrayNombre = arrayNombre.length;
         
-        if (arrayNombre.length == 2){
+       if(arrayNombre.length >= 2){
             
-            letrasNombre2 = arrayNombre[1].toCharArray();
-            
-        }else if(arrayNombre.length > 2){
-            
-            letrasNombre2 = arrayNombre[1].toCharArray();
+            if(arrayNombre[1].equals("DEL") || arrayNombre[1].equals("DE")){
+                
+                letrasNombre2 = arrayNombre[2].toCharArray();
+                
+            }else{
+                
+                letrasNombre2 = arrayNombre[1].toCharArray();
+                
+            }
             
         }
         
@@ -368,15 +372,32 @@ public class Operacion {
                 
             do{
                 
-                if (letrasNombre1[j] == 'A' || letrasNombre1[j] == 'E' || letrasNombre1[j] == 'I' || letrasNombre1[j] == 'O' || letrasNombre1[j] == 'U'){
+                if(arrayNombre[0].equals("JOSE") || arrayNombre[0].equals("MARIA")){
                     
-                    
+                    if (letrasNombre2[j] == 'A' || letrasNombre2[j] == 'E' || letrasNombre2[j] == 'I' || letrasNombre2[j] == 'O' || letrasNombre2[j] == 'U'){
+
+
+
+                    }else{
+
+                        curp += letrasNombre2[j];
+                        i++;
+
+                    }
                     
                 }else{
-                    
-                    curp += letrasNombre1[j];
-                    i++;
-                    
+
+                    if (letrasNombre1[j] == 'A' || letrasNombre1[j] == 'E' || letrasNombre1[j] == 'I' || letrasNombre1[j] == 'O' || letrasNombre1[j] == 'U'){
+
+
+
+                    }else{
+
+                        curp += letrasNombre1[j];
+                        i++;
+
+                    }
+                
                 }
                 
                 j++;
