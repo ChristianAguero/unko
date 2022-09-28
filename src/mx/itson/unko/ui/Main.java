@@ -68,7 +68,7 @@ public class Main extends javax.swing.JFrame {
 
         cboMesNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        cboDiaNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cboDiaNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         jLabel8.setText("Sexo");
 
@@ -182,7 +182,14 @@ public class Main extends javax.swing.JFrame {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         
-        
+        String nombre = txtNombre.getText();
+        String apellidoPaterno = txtApellidoPaterno.getText();
+        String apellidoMaterno = txtApellidoMaterno.getText();
+        int diaNacimiento = Integer.parseInt(cboDiaNacimiento.getSelectedItem().toString());
+        String mesNacimiento = cboMesNacimiento.getSelectedItem().toString();
+        int anioNacimiento = Integer.parseInt(txtAnioNacimiento.getText());
+        String sexo = cboSexo.getSelectedItem().toString();
+        String estadoNacimiento = cboEstadoNacimiento.getSelectedItem().toString();
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
