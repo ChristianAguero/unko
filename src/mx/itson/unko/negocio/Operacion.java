@@ -29,9 +29,10 @@ public class Operacion {
         char[] letrasApellidoPaterno = apellidoPaterno.toCharArray();
         char[] letrasApellidoMaterno = apellidoMaterno.toCharArray();
         String dia = diaNacimiento;
+        char[] letrasDia = dia.toCharArray();
         String mes = "";
         String stringAnio = Integer.toString(anioNacimiento);
-        char[] anio = .toCharArray();
+        char[] anio = stringAnio.toCharArray();
         char[] letrasSexo = sexo.toCharArray();
         String estado = "";
         int contador1 = 0;
@@ -80,6 +81,8 @@ public class Operacion {
                 break;
             
         }
+        
+        char[] letrasMes = mes.toCharArray();
         
         switch(estadoNacimiento){
             
@@ -185,6 +188,8 @@ public class Operacion {
             
         }
         
+        char[] letrasEstado = estado.toCharArray();
+        
         if(mes.equals("04") && mes.equals("06") && mes.equals("09") && mes.equals("11") && dia.equals("02")){
             
             if(mes.equals("04") && mes.equals("06") && mes.equals("09") && mes.equals("11")){
@@ -217,7 +222,7 @@ public class Operacion {
             
         }
         
-        if(nombre.equals("") || apellidoPaterno.equals("") || anioNacimiento.equals("")){
+        if(nombre.equals("") || apellidoPaterno.equals("") || stringAnio.equals("")){
             
             
             
@@ -274,10 +279,13 @@ public class Operacion {
             
             curp += anio[2];
             curp += anio[3];
-            curp += mes;
-            curp += dia;
+            curp += letrasMes[0];
+            curp += letrasMes[1];
+            curp += letrasDia[0];
+            curp += letrasDia[1];
             curp += letrasSexo[0];
-            curp += estado;
+            curp += letrasEstado[0];
+            curp += letrasEstado[1];
             i = 0;
             j = 1;
             
@@ -343,7 +351,17 @@ public class Operacion {
                 
             }while(i == 0);
             
-            if()
+            if(anioNacimiento <= 1999){
+                
+                curp += '1';
+                
+            }else{
+                
+                curp += 'A';
+                
+            }
+            
+            curp += '1';
             
         }else{
             

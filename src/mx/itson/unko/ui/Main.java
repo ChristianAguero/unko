@@ -5,6 +5,8 @@
  */
 package mx.itson.unko.ui;
 
+import mx.itson.unko.negocio.Operacion;
+
 /**
  *
  * @author shiri
@@ -182,14 +184,27 @@ public class Main extends javax.swing.JFrame {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         
-        String nombre = txtNombre.getText();
-        String apellidoPaterno = txtApellidoPaterno.getText();
-        String apellidoMaterno = txtApellidoMaterno.getText();
-        String diaNacimiento = cboDiaNacimiento.getSelectedItem().toString();
-        String mesNacimiento = cboMesNacimiento.getSelectedItem().toString();
-        int anioNacimiento = Integer.parseInt(txtAnioNacimiento.getText());
-        String sexo = cboSexo.getSelectedItem().toString();
-        String estadoNacimiento = cboEstadoNacimiento.getSelectedItem().toString();
+        try{
+            
+            String nombre = txtNombre.getText();
+            String apellidoPaterno = txtApellidoPaterno.getText();
+            String apellidoMaterno = txtApellidoMaterno.getText();
+            String diaNacimiento = cboDiaNacimiento.getSelectedItem().toString();
+            String mesNacimiento = cboMesNacimiento.getSelectedItem().toString();
+            int anioNacimiento = Integer.parseInt(txtAnioNacimiento.getText());
+            String sexo = cboSexo.getSelectedItem().toString();
+            String estadoNacimiento = cboEstadoNacimiento.getSelectedItem().toString();
+
+            Operacion operacion = new Operacion();
+            String curp = operacion.sacarCurp(nombre, apellidoPaterno, apellidoMaterno, diaNacimiento, mesNacimiento, anioNacimiento, sexo, estadoNacimiento);
+            
+            lblCurp.setText(curp);
+            
+        }catch(Exception ex){
+            
+            lblCurp.setText("Error, no se puede generar la curp con los datos proporcionados");
+            
+        }
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
