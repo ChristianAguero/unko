@@ -37,7 +37,16 @@ public class Operacion {
                 .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
                 .toUpperCase();
         char[] letrasNombre1 = arrayNombre[0].toCharArray();
-        char[] letrasNombre2 = arrayNombre[1].toCharArray();
+        char[] letrasNombre2 = null;
+        
+        //int pruebaLengthArrayNombre = arrayNombre.length;
+        
+        if (arrayNombre.length == 2){
+            
+            letrasNombre2 = arrayNombre[1].toCharArray();
+            
+        }
+        
         char[] letrasApellidoPaterno = apellidoPaterno.toCharArray();
         char[] letrasApellidoMaterno = apellidoMaterno.toCharArray();
         String dia = diaNacimiento;
@@ -232,6 +241,10 @@ public class Operacion {
                 
             }
             
+        }else{
+            
+            contador1 = 1;
+            
         }
         
         if(nombre.equals("") || apellidoPaterno.equals("") || stringAnio.equals("")){
@@ -271,7 +284,7 @@ public class Operacion {
                 
             }
             
-            if(arrayNombre[1].equals("")){
+            if(arrayNombre.length == 1){
                
                 curp += letrasNombre1[0];
                 
@@ -310,6 +323,7 @@ public class Operacion {
                 }else{
                     
                     curp += letrasApellidoPaterno[j];
+                    i++;
                     
                 }
                 
@@ -335,6 +349,7 @@ public class Operacion {
                     }else{
                     
                         curp += letrasApellidoMaterno[j];
+                        i++;
                     
                     }
                 
@@ -356,6 +371,7 @@ public class Operacion {
                 }else{
                     
                     curp += letrasNombre1[j];
+                    i++;
                     
                 }
                 
