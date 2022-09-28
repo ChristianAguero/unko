@@ -11,13 +11,25 @@ package mx.itson.unko.negocio;
  */
 public class Operacion {
     
+    /**
+     * 
+     * @param nombre El nombre o nombres proporcionados por el usuario.
+     * @param apellidoPaterno Apellido paterno del usuario.
+     * @param apellidoMaterno Apellido materno del usuario.
+     * @param diaNacimiento Día de nacimiento en formato 2 números.
+     * @param mesNacimiento Mes de nacimiento del usuario.
+     * @param anioNacimiento El año de nacimiento del usuario.
+     * @param sexo El sexo del usuario.
+     * @param estadoNacimiento El estado de la republica dónde nació el usuario, o en su defecto si nació en el extranjero.
+     * @return  La CURP resultante se retorna al metodo Main para su posterior impresión en el label correspondiente.
+     */
     public String sacarCurp(String nombre, String apellidoPaterno, String apellidoMaterno, String diaNacimiento, String mesNacimiento, int anioNacimiento, String sexo, String estadoNacimiento){
         
         String curp = "";
         nombre = nombre.toLowerCase().trim()
                 .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
                 .toUpperCase();
-        String[] arrayNombre = nombre.toLowerCase().split(" ");
+        String[] arrayNombre = nombre.split(" ");
         apellidoPaterno = apellidoPaterno.trim()
                 .replace("á", "a").replace("í", "i").replace("ú", "u").replace("é", "e").replace("ó", "o")
                 .toUpperCase();
